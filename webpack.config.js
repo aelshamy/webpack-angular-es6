@@ -12,7 +12,7 @@ var providePlugins = new ProvidePlugin({
   'windows.jQuery': 'jquery',
 })
 
-var config = {
+module.exports = {
   context: __dirname + '/app',
   entry: './index.js',
   output: {
@@ -57,5 +57,3 @@ if (process.env.NODE_ENV === 'production') {
   config.output.path = __dirname + '/build';
   config.plugins.push(new optimize.UglifyJsPlugin());
 }
-
-module.exports = config;
