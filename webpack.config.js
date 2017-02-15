@@ -21,27 +21,27 @@ var config = {
   },
   devtool: 'source-map',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /(node_modules)/,
-      loader: 'ng-annotate!babel'
+      loader: 'ng-annotate-loader!babel-loader'
     }, {
       test: /\.s?css$/,
       exclude: /(node_modules)/,
-      loaders: ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap']
+      loaders: ['style-loader', 'css-loader?sourceMap', 'autoprefixer-loader', 'sass-loader?sourceMap']
     }, {
       test: /\.html$/,
-      loader: 'raw'
+      loader: 'raw-loader'
     }, {
       test: /\.(jpe?g|png|gif)$/,
       exclude: /(node_modules)/,
-      loader: 'url?limit=10000'
+      loader: 'url-loader?limit=10000'
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'url?limit=10000&minetype=application/font-woff'
+      loader: 'url-loader?limit=10000&minetype=application/font-woff'
     }, {
       test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'url'
+      loader: 'url-loader'
     }]
   },
   plugins: [
@@ -49,7 +49,7 @@ var config = {
     providePlugins
   ],
   resolve: {
-    extensions: ['', '.js', '.css']
+    extensions: ['.js', '.css']
   }
 };
 
